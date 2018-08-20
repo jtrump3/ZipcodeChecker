@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import ReactDOM from 'react-dom';
-// var zipcodes = require('zipcodes');
+var zipcodes = require('zipcodes');
 
 
 class App extends Component{
@@ -16,16 +16,16 @@ class App extends Component{
     }
 
     handleIVZsubmit(){
-        // let entry = document.getElementById("pvSubmit").value
-        // let valid = zipcodes.lookup(entry);
-        // let output;
-        // if(valid){output = "valid"}
-        // if(!valid){output = "invalid"}
-        // this.setState({
-        //     zipcode: document.getElementById("pvSubmit").value,
-        //     isValid: output,
-        //     response: valid,
-        // })
+        let entry = document.getElementById("pvSubmit").value
+        let valid = zipcodes.lookup(entry);
+        let output;
+        if(valid){output = "valid"}
+        if(!valid){output = "invalid"}
+        this.setState({
+            zipcode: document.getElementById("pvSubmit").value,
+            isValid: output,
+            response: valid,
+        })
     }
     render() {
         return(
@@ -39,7 +39,7 @@ class App extends Component{
                         {this.state.isValid=="valid"&&<span style={{color: "green"}}>{this.state.isValid}</span>}
                         {this.state.isValid=="invalid"&&<span style={{color: "red"}}>{this.state.isValid}</span>}
                     </h3>
-                    {/* <h4><b>Response:</b> <pre>{JSON.stringify(this.state.response , null, 2) }</pre></h4> */}
+                    <h4><b>Response:</b> <pre>{JSON.stringify(this.state.response , null, 2) }</pre></h4>
                 </div>
             </div>
         );
