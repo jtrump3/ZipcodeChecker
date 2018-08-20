@@ -40,7 +40,6 @@ class App extends Component{
                         {this.state.isValid=="invalid"&&<span style={{color: "red"}}>{this.state.isValid}</span>}
                     </h3>
                     <h4><b>Response:</b> <pre>{JSON.stringify(this.state.response , null, 2) }</pre></h4>
-                    <h4><b>Liscence: </b><a href="https://opensource.org/licenses/BSD-2-Clause">BSD</a></h4>
                 </div>
             </div>
         );
