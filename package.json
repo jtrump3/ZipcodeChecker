@@ -2,7 +2,7 @@
   "name": "zipcodechecker",
   "version": "1.0.0",
   "description": "Please read the Terms and Conditions of Use, indicate your acceptance or non-acceptance and then click the SUBMIT button at the end to register for the APIs.",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
