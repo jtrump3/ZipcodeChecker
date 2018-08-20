@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
-    "build": "webpack --mode production",
+    "build": "webpack --env=development --progress --profile --colors --display-error-details --display-cached",
     "test": "jest"
   },
   "keywords": [],

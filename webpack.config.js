@@ -1,16 +1,22 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const htmlWebpackPlugin = new HtmlWebPackPlugin({
+
+const htmlPlugin = new HtmlWebPackPlugin({
     template: "./src/index.html",
     filename: "./index.html"
 });
 
-
 module.exports = {
-    output: {
-        publicPath: '/'
-    },
-    module: {
-        rules: [
+    module:{
+        rules:[
+            {
+                test: /\.(ttf|woff2|eot|woff|png|jpg|gif)$/,
+                loader:'url-loader',
+                options: {
+                    limit: 50000
+                }
+                    
+                
+            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -19,28 +25,11 @@ module.exports = {
                 }
             },
             {
-                test: /\.css$/,
+                test:/\.css$/,
                 use: ["style-loader", "css-loader"]
-            },
-            {
-                test: /\.(gif|png|jpe?g|svg)$/i,
-                use: [
-                  'file-loader',
-                  {
-                    loader: 'image-webpack-loader',
-                    options: {
-                      bypassOnDebug: true, // webpack@1.x
-                      disable: true, // webpack@2.x and newer
-                    },
-                  },
-                ],
-              }
-
+            }
         ]
     },
-    plugins: [htmlWebpackPlugin],
-    devServer: {
-        publicPath: '/',
-        historyApiFallback: true
-    }
+
+    plugins:[htmlPlugin]
 };
